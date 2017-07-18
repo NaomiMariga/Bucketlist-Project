@@ -1,8 +1,8 @@
 
 
-INTRODUCTION TO THE BUCKETLIST PROJECT
+## INTRODUCTION TO THE BUCKETLIST PROJECT
 
-TIA BC20 week 1 project: Bucketlist 
+### TIA BC20 week 1 project: Bucketlist 
 
 A bucketlist help individuals to keep track of their goals and things to be done Eg. Going to a cinema, Climbing a mountain, and etc
 The bucketlist application give individuals a flexible and user-friendly interface, where they can create accounts, create and view 
