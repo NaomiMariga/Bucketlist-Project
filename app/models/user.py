@@ -1,6 +1,7 @@
 class User:
     
-    def register_user(self, username):
+    def register_user(self,fname,oname,email,phone, username,password):
         pass
-    def login_user(self, username):
+    def login_user(self, username,password):
         pass
+    
