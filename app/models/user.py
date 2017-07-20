@@ -1,7 +1,27 @@
 class User:
+    def __init__(self):
+        self.Registered_users = {}
+        self.login = None
     
-    def register_user(self,fname,oname,email,phone, username,password):
-        pass
-    def login_user(self, username,password):
-        pass
+    def register_user(self,fname,oname,email,phone,username,password):
+        self.Registered_users = {
+            'first_name': fname,
+            'other_name': oname,
+            'email': email,
+            'phone': phone,
+            'username': username,
+            'password': password 
+        }
+        
+    def login_user(self,username,password):
+       for email in self.Registered_users:
+           if email == email:
+               self.login == username and password == password
+
+
+               
+
+        
+           
+
     
