@@ -13,12 +13,10 @@ class User:
             'password': password 
         }
         
-    def login_user(self,username,password):
+    def login_user(self,email,password):
        for email in self.Registered_users:
-           if email == email:
-               self.login == username and password == password
-
-
+           if email == email and password == password:
+               self.login = email
                
 
         
