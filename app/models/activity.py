@@ -4,9 +4,9 @@ class Activity:
         self.input_edit = input("")
         
 
-    def Add_activity(self, name):
+    def add_activity(self, name):
         self.input_activity = (name)
-    def Edit_activity(self, name):
+    def edit_activity(self, name):
         self.input_edit = (name)
-    def Delete_activity(self):
+    def delete_activity(self):
         del()

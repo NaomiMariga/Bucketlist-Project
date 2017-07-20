@@ -14,14 +14,8 @@ class bucketlistTest(unittest.TestCase):
         self.assertEqual(self.bucketlist.edit_bucketlist({
             "name":"movies"
             }), "updated")
-    def test_edit_bucketlist(self):
-        self.assertEqual(self.bucketlist.create_bucketlist({
-            "name":"movies"
-            }), "Buckelist created successfuly")
     def test_delete_bucketlist(self):
-        self.assertEqual(self.bucketlist.edit_bucketlist({
-            "name":"movies"
-            }), "Bucketlist deleted")
+        self.assertEqual(self.bucketlist.delete_bucketlist(), "Bucketlist deleted")
 
     
     
