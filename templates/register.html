@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>BUCKETLIST</title>
+    <!-- Adding bootstrap  css-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.css') }}">
+    <!-- Adding javascript -->
+    <script src="{{ url_for('static', filename= 'bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/js/bootstrap.min.js')}}"></script>
+    <!-- Adding external CSS -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+
+
+</head>
+
+<body>
+
+    </script>
+    <div class="container-fluid">
+        <div class="header">
+            <div class="header-image1">
+                <img src="{{ url_for('static', filemname= 'images/Bucketlistbg2.png') }}" width="100" height="100">
+            </div>
+            <div class="header-image2">
+                <img src="{{ url_for('static', filename = 'images/list3.png') }}" width="100" height="100">
+            </div>
+        </div>
+
+        <form class="form1">
+            <br/>
+            <center>
+                <h4> Account Registration</h4>
+            </center>
+
+            <div class="form-group">
+                <div class="col-lg-3"><label for="name">First Name</label></div>
+                <div class="col-lg-3"><input type="name" class="form-control" id="fname" required></div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-3"><label for="name">Other Name</label></div>
+                <div class="col-lg-3"> <input type="name" class="form-control" id="Oname" required></div>
+            </div>
+            <br/>
+            <div class="form-group">
+                <div class="col-lg-3"> <label for="email">Email</label></div>
+                <div class="col-lg-3"> <input type="email" class="form-control" id="email" required></div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-3"><label for="phone">Phone</label></div>
+                <div class="col-lg-3"><input type="text" class="form-control" id="phone" required></div>
+            </div>
+            <br/>
+            <div class="form-group">
+                <div class="col-lg-3"><label for="username">Username</label></div>
+                <div class="col-lg-3"><input type="name" class="form-control" id="username" required></div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-3"><label for="password">Password</label></div>
+                <div class="col-lg-3"><input type="password" class="form-control" id="password" required></div>
+            </div>
+            <br/>
+            <hr>
+            <center>
+                <button type="submit" class="btn btn-default">REGISTER</button>
+
+                <h6>Account created successfully. Proceed to <a href="../templates/index.html">Login</a></h6>
+            </center>
+            </center>
+        </form>
+        <div class="footer">
+            <center>Users Guide</center>
+        </div>
+
+    </div>
+
+    <body>
+
+</html>
