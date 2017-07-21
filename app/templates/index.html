@@ -5,30 +5,30 @@
     <meta charset="utf-8">
     <title>BUCKETLIST</title>
     <!-- Adding bootstrap  css-->
-    <link rel="stylesheet" type="text/css" href="../static/bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.css') }}">
     <!-- Adding javascript -->
-    <script src="../static/bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename= 'bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/js/bootstrap.min.js')}}"></script>
     <!-- Adding external CSS -->
-    <link rel="stylesheet" type="text/css" href="../static/styles.css">
-    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+
 
 </head>
 
 <body>
-    <script>
+
     </script>
     <div class="container-fluid">
         <div class="header">
             <div class="header-image1">
-                <img src="../static/images/Bucketlistbg2.png" width="100" height="100">
+                <img src="{{ url_for('static', filemname= 'images/Bucketlistbg2.png') }}" width="100" height="100">
             </div>
 
             <div class="header-image2">
-                <img src="../static/images/list3.png" width="100" height="100">
+                <img src="{{ url_for('static', filename = 'images/list3.png') }}" width="100" height="100">
             </div>
         </div>
 
-        <form class="form">
+        <form class="form" form action="{{url_for('index')}}" method="GET">
             <br/>
             <center>
                 <h3>LOGIN</h3>
@@ -41,9 +41,9 @@
                 <center><label for="password"> Password</label></center>
                 <input type="password" class="form-control" placeholder="Enter password" id="password" required>
             </div>
-            <center><a href="../templates/bucketcreate_view.html"><button type="submit" class="btn btn-default" >LOG IN </button></a>
+            <center><a href="{{ url_for('bucketlist') }}"><button type="submit" class="btn btn-default" >LOG IN </button></a>
                 <hr>
-                <p> No Account yet? <a href="../templates/register.html">Create account here</a></p>
+                <p> No Account yet? <a href="{{  url_for('register') }}">Create account here</a></p>
             </center>
 
 

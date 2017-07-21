@@ -1,14 +1,14 @@
-from flask import Flask
-from models.user import User
-from models.bucketlist import Bucketlist
-from models.activity import Activity 
+from flask import Flask, render_template
 
-app = Flask('bucketlist', template_folder="templates", static_folder="static")
-login = User()
+app = Flask('__name__')
 
+@app.route('/index/', methods=['GET'])
+def index():
+    return render_template('index.html')
 
-@app.route('/app/models/user')
+@app.route('/', methods=['GET'])
+def register():
+    return render_template('register.html')
 
-app.run()
-app.debug = True
-app.run()
+if __name__ == "__main__":
+    app.run()
