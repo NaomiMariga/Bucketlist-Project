@@ -2,13 +2,13 @@
 """
 from flask import Flask, render_template, request, session, make_response, url_for, redirect
 import os #for cryptographic functions
-
+from models.bucketlist import Bucketlist
 
 app = Flask(__name__)
 
 Users = {}
 app.secret_key = os.urandom(20)
-
+bucketlist = {}
 
 @app.route('/register/', methods=['GET', 'POST'])
 def register():
@@ -55,19 +55,30 @@ def index():
 
             if email == valid_email and password == valid_pass:
                 session['email'] = valid_email
-                return redirect('/create_bucket')
+                return redirect('/create_bucket/')
         except KeyError:
             error = "Login was not successful"
             return render_template("index.html", error=error)
 
 
-@app.route('/create_bucket', methods=['GET', 'POST'])
+@app.route('/create_bucket/', methods=['GET', 'POST'])
 def bucketcreate_view():
     """   redirects to the bucketlist page
     """
     if request.method == 'GET': 
         return render_template('bucketcreate_view.html')
-    
+    if request.method == 'POST':
+        bucket_name = request.form.get('name')
+        
+        print(bucket_name, "bucketlist name test")
+
+        bucketlist[bucket_name] = [bucket_name]
+
+        if bucketlist[bucket_name]:
+            return render_template('bucketcreate_view.html')
+        else:
+            print ("Problem encountered adding bucketlist")
+            
 
 
 @app.route('/', methods=['GET'])
