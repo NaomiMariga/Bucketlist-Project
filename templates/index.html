@@ -20,7 +20,7 @@
     <div class="container-fluid">
         <div class="header">
             <div class="header-image1">
-                <img src="{{ url_for('static', filemname= 'images/Bucketlistbg2.png') }}" width="100" height="100">
+                <img src="{{ url_for('static', filename= 'images/Bucketlistbg2.png') }}" width="100" height="100">
             </div>
 
             <div class="header-image2">
@@ -28,10 +28,12 @@
             </div>
         </div>
 
-        <form class="form" form action="{{url_for('index')}}" method="GET">
+        <form class="form" form action="/login/" method="post">
             <br/>
             <center>
                 <h3>LOGIN</h3>
+                {%if error %}
+                <label><font color=red>{{error}}</font></label> {%endif%}
             </center>
             <div class="form-group">
                 <center><label for="email"> Email Address/UserID</label></center>
@@ -41,9 +43,11 @@
                 <center><label for="password"> Password</label></center>
                 <input type="password" class="form-control" placeholder="Enter password" id="password" required>
             </div>
-            <center><a href="{{ url_for('bucketlist') }}"><button type="submit" class="btn btn-default" >LOG IN </button></a>
-                <hr>
-                <p> No Account yet? <a href="{{  url_for('register') }}">Create account here</a></p>
+            <center>
+                <button type="submit" btn btn class="info">LOGIN</button>
+            </center>
+            <hr>
+            <p> No Account yet? <a href="{{  url_for('register') }}">Create account here</a></p>
             </center>
 
 

@@ -1,12 +1,18 @@
+"""
+vyguu
+"""
 class User:
+    """
+    ijiuiui
+    """
     def __init__(self):
         self.Registered_users = {}
         self.login = None
     
-    def register_user(self,fname,oname,email,phone,username,password):
+    def register_user(self,first_name, other_name, email, phone, username, password):
         self.Registered_users = {
-            'first_name': fname,
-            'other_name': oname,
+            'first_name': first_name,
+            'other_name': other_name,
             'email': email,
             'phone': phone,
             'username': username,
