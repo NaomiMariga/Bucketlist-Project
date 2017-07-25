@@ -1,10 +1,13 @@
 """ importing modules and functions from flask
 """
-from flask import Flask, render_template, request, session, make_response
+from flask import Flask, render_template, request, session, make_response, url_for, redirect
+import os #for cryptographic functions
+
 
 app = Flask(__name__)
 
 Users = {}
+app.secret_key = os.urandom(20)
 
 
 @app.route('/register/', methods=['GET', 'POST'])
@@ -41,28 +44,30 @@ def index():
         """
             user login authentication 
         """
-        email = request.form.get('email')
-        password = request.form.get('password')
-        print(email, password)
+        #session[email] = request.form['email','password']
+        email = request.form['email']
+        password = request.form['password']
+        print(email, password, "User entered data")
 
         try:
-            valid_email= Users[email]
+            valid_email = Users[email][2]
             valid_pass = Users[email][-1]
-            print(valid_email, valid_pass)
+
             if email == valid_email and password == valid_pass:
-                session['user'] = valid_email
-                return render_template('bucketcreate_view.html')
+                session['email'] = valid_email
+                return redirect('/create_bucket')
         except KeyError:
             error = "Login was not successful"
             return render_template("index.html", error=error)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/create_bucket', methods=['GET', 'POST'])
 def bucketcreate_view():
     """   redirects to the bucketlist page
     """
-    if request.method == 'POST': 
+    if request.method == 'GET': 
         return render_template('bucketcreate_view.html')
+    
 
 
 @app.route('/', methods=['GET'])
