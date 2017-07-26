@@ -18,6 +18,7 @@ items they add to their bucketlists.
 	##### Running on ``host: 127.0.0.1 port: 80``
 
 ### Registration
+To use the application the user is required to first create an account and then login to the application . The screenshot below shows the application's user registration page.
 
 ![Alt text](https://github.com/NaomiMariga/bucketlist/blob/work/static/screenshots/Account_Registration.png "registration")
 
