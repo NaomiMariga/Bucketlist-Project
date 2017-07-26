@@ -12,14 +12,14 @@ items they add to their bucketlists.
 ### Running the Application
 
   ##### Install the dependancies:
-	####### `` "pip install -r requirements.txt" ``
-	#######``   python run.py``
+	##### `` "pip install -r requirements.txt" ``
+	##### ``   python run.py``
 	
-	####### Running on ``host: 127.0.0.1 port: 80``
+	##### Running on ``host: 127.0.0.1 port: 80``
 
 ### Registration
 
-![Alt text](/relative/path/to/Account_registration.png?raw=true "registration")
+![Alt text](/relative/static/screenshots/Account_registration.png?raw=true "registration")
 
 ### login 
 
