@@ -23,7 +23,7 @@ To use the application the user is required to first create an account and then 
 ![Alt text](https://github.com/NaomiMariga/bucketlist/blob/work/static/screenshots/Account_Registration.png "registration")
 
 ### login 
-
+![Alt text](https://github.com/NaomiMariga/bucketlist/blob/work/static/screenshots/index or login_page.png "login")
 ### Dashboard
-
+![Alt text](https://github.com/NaomiMariga/bucketlist/blob/work/static/screenshots/creating_bucketlist.png "bucketlist dashboard")
 ###
