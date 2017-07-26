@@ -54,7 +54,7 @@ def index():
             valid_pass = Users[email][-1]
 
             if email == valid_email and password == valid_pass:
-                session['email'] = valid_email
+                session['email'] = valid_email and valid_pass
                 return redirect('/create_bucket/')
         except KeyError:
             error = "Login was not successful"
@@ -68,28 +68,31 @@ def bucketcreate_view():
     if request.method == 'GET': 
         return render_template('bucketcreate_view.html')
     if request.method == 'POST':
-        bucket_name = request.form.get('name')
-        
+        bucket_name = request.form.get('name')     
         print(bucket_name, "bucketlist name test")
 
         bucketlist[bucket_name] = [bucket_name]
 
-        if bucketlist[bucket_name]:
-            return render_template('bucketcreate_view.html')
-        else:
-            print ("Problem encountered adding bucketlist")
-            
+        try:
+            name_exist = bucketlist[bucket_name]
+            name_given = request.form['name']
+            if name_given != name_exist:
+                bucketlist[bucket_name] = [bucket_name]        
+                if bucketlist[bucket_name]:
+                    return render_template('bucketcreate_view.html', buckets = bucketlist)             
+        except KeyError:
+            error = "name already exists"
+            return render_template('bucketcreate_view.html', error = error) 
 
-
-@app.route('/', methods=['GET'])
+@app.route('/activities/', methods=['GET'])
 def bucketlist_activities():
     """  redirects to the bucketlist  activities
     """
-    return render_template('bucketlist_activities.html')
+    if request.method == 'GET':
+        return render_template('bucketlist_activities.html')
 
 
 
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port ='80')
-
+    app.run(host='127.0.0.1', port='80')
