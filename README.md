@@ -19,7 +19,7 @@ items they add to their bucketlists.
 
 ### Registration
 
-![Alt text](/bucketlist/static/screenshots/Account_registration.png?raw=true "registration")
+![Alt text](/bucketlist/static/screenshots/Account_registration.png "registration")
 
 ### login 
 
