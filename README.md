@@ -19,7 +19,7 @@ items they add to their bucketlists.
 
 ### Registration
 
-![Alt text](/bucketlist/static/screenshots/Account_registration.png "registration")
+![Alt text](https://github.com/NaomiMariga/bucketlist/blob/work/static/screenshots/Account_Registration.png "registration")
 
 ### login 
 
