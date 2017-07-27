@@ -1,11 +1,9 @@
 import unittest
 from  models.bucketlist import Bucketlist
 
-class bucketlistTest(unittest.TestCase):  
+class TestBucketlist(unittest.TestCase):  
 
-    def setUp(self):
-        self.bucketlist = Bucketlist()
-        
+          
     def test_create_bucketlist(self):
         self.assertEqual(self.bucketlist.create_bucketlist({
             "name":"movies"

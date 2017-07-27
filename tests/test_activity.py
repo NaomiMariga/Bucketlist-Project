@@ -1,10 +1,7 @@
 import unittest
 from  models.activity import Activity
 
-class ActivityTest(unittest.TestCase):  
-
-    def setUp(self):
-        self.activity = Activity()
+class TestActivity(unittest.TestCase):  
 
     def test_add_activity(self):
         self.assertEqual(self.activity.add_activity({"name":"The gods must be crazy"}), "Activity added")

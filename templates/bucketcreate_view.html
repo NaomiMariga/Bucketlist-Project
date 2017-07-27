@@ -81,47 +81,46 @@
                     <td></td>
                 </tr>
             </th>
-            <form method="get">
-                {% for bucket in buckets%}
-                <tr>
 
-                    <td><button type="reset" name="Edit" class="btn btn-info" data-toggle="modal" data-target="#basicModal">Edit</button>
-                    </td>
-                    <td><button type="reset" name="Delete" class="btn btn-warning">Delete</button></td>
-                    <td></td>
-                    <td>{{bucket}}</td>
-                    <td> <a href="{{url_for('bucketlist_activities')}}"><button type="button" class="btn btn-info btn-lg">View Activities</button></a></td>
+            {% for bucket in buckets%}
+            <tr>
 
-                </tr>
-                {% endfor %}
-                <!--Nodal -->
-                <div id="basicModal" class="modal" role="dialog" tabindex="-1">
-                    <div class="modal-dialog">
+                <td><button type="reset" name="Edit_button" class="btn btn-info" data-toggle="modal" data-target="#{{bucket.bucketlist_id}}basicModal">Edit</button>
+                </td>
+                <td><button type="reset" name="Delete" class="btn btn-warning">Delete</button></td>
+                <td></td>
+                <td>{{ bucket.bucket_name }}</td>
+                <td> <a href="{{url_for('bucketlist_activities')}}"><button type="button" class="btn btn-info btn-lg">View Activities</button></a></td>
 
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Edit Bucketlist</h4>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="name"> Bucket Name:</label>
-                                        <input type="text" class="form-control" id="name" name="name" required>
-                                    </div>
+            </tr>
 
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-lg btn-info">save</button>
-                                </form>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
+            <!--Nodal -->
+            <div id="{{bucket.bucketlist_id}}basicModal" class="modal" role="dialog" tabindex="-1">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit Bucketlist</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" action="/edit_bucket/{{bucket.bucketlist_id }}">
+                                <div class="form-group">
+                                    <label for="name"> Bucket Name:</label>
+                                    <input type="text" class="form-control" id="name" value={{bucket.bucket_name}} name="Edit_name" required>
+                                </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-lg btn-info">save</button>
+                            </form>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
-
-            </form>
+            </div>
+            {% endfor %}
         </table>
         <div class="footer ">
             <center>Users Guide</center>

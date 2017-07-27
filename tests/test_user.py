@@ -1,10 +1,7 @@
 import unittest
 from models.user import User
 
-class UserTest(unittest.TestCase):  
-
-    def setUp(self):
-        self.user = User()
+class TestUser(unittest.TestCase):  
 
     def test_register_user(self):
         self.assertEqual(self.user.register_user({

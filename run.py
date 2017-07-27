@@ -114,7 +114,7 @@ def edit_bucket(bucketlist_id):
     #     error = "name already exists"
     #     return render_template('bucketcreate_view.html', error = error) 
         
-@app.rout('/delete_bucket'/)
+@app.rout('/delete_bucket/')
 @app.route('/activities/', methods=['GET'])
 def bucketlist_activities():
     """  redirects to the bucketlist  activities
