@@ -1,6 +1,6 @@
 """ importing modules and functions from flask
 """
-from flask import Flask, render_template, request, session, make_response, url_for, redirect
+from flask import Flask, render_template, request, session, make_response, redirect
 import os #for cryptographic functions
 from models.bucketlist import Bucketlist
 from models.user import User
@@ -10,7 +10,6 @@ import uuid
 app = Flask(__name__)
 
 Users = {}
-users_bucketlist = []
 app.secret_key = os.urandom(20)
 bucketlists_dict= {}
 
@@ -18,7 +17,7 @@ bucketlists_dict= {}
 
 
 
-@app.route('/register/', methods=['GET', 'POST'])
+@app.route('/register/', methods=['GET','POST'])
 def register():
     """ redirects to the user registration page
     """
@@ -26,18 +25,15 @@ def register():
         return render_template('register.html')
 
     if request.method == 'POST':
-        first_name = request.form.get('first_name')
-        other_name = request.form.get('other_name')
-        email = request.form.get('email')
-        phone = request.form.get('phone')
         username = request.form.get('username')
+        email = request.form.get('email')
         password = request.form.get('password')
         
-    Users[email] = [first_name, other_name, email, phone, username, password]
+    Users[email] = [username,  email, password]
     print (Users)
         
     if Users[email]:
-        return (render_template('register.html'), "Account created successfully")
+        return (render_template('index.html'), "Account created successfully")
     else:
         return "Problem was encountered creating account"
 
@@ -58,7 +54,7 @@ def index():
         print(email, password, "User entered data")
 
         try:
-            valid_email = Users[email][2]
+            valid_email = Users[email][1]
             valid_pass = Users[email][-1]
 
             if email == valid_email and password == valid_pass:
@@ -79,12 +75,15 @@ def bucketcreate_view():
         bucket_name = request.form.get('name')     
         print(bucket_name, "bucketlist name test")
         bucketlist_id = str(uuid.uuid1())
-        bucketlist_object = Bucketlist(bucketlist_id,bucket_name)
+        bucketlist_object = Bucketlist(bucketlist_id, bucket_name)
 
-        bucketlists_dict[session['email']] = []
-        bucketlists_dict[session['email']].append(bucketlist_object)
-        print(bucketlists_dict[session['email']])
-
+        if session['email'] in bucketlists_dict:
+            bucketlists_dict[session['email']].append(bucketlist_object)
+        else:
+            bucketlists_dict[session['email']] = []
+            bucketlists_dict[session['email']].append(bucketlist_object)
+        print(bucketlists_dict[session['email']], "testing bucketlist")
+  
         
 
         # name_exist = bucketlist[bucket_name]
@@ -114,7 +113,15 @@ def edit_bucket(bucketlist_id):
     #     error = "name already exists"
     #     return render_template('bucketcreate_view.html', error = error) 
         
-@app.rout('/delete_bucket/')
+@app.route('/delete_bucket/<bucketlist_id>', methods=['POST'])
+def delete(bucketlist_id):
+    for bucket in bucketlists_dict[session['email']]:
+        if bucketlist_id == bucket.bucketlist_id:
+           bucketlists_dict[session['email']].remove(bucket)
+        return render_template(
+    'bucketcreate_view.html', buckets = bucketlists_dict[session['email']]
+    )
+
 @app.route('/activities/', methods=['GET'])
 def bucketlist_activities():
     """  redirects to the bucketlist  activities
