@@ -9,19 +9,22 @@ The bucketlist application give individuals a flexible and user-friendly interfa
 bucketlist as well as adding, updating and removing the bucketlist. The users also get to create, view, update, and delete the various 
 items they add to their bucketlists.
 
-###Running the Application
-Install the dependancies:
-	 `` "pip install -r requirements.txt" ``
-	``   python run.py``
+### Running the Application
+
+  ##### Install the dependancies:
+	##### `` "pip install -r requirements.txt" ``
+	##### ``   python run.py``
 	
-	Running on ``host: 127.0.0.1 port: 80``
+	##### Running on ``host: 127.0.0.1 port: 80``
 
-###Registration
+### Registration
+To use the application the user is required to first create an account and then login to the application . The screenshot below shows the application's user registration page.
 
+![Alt text](https://github.com/NaomiMariga/bucketlist/blob/work/static/screenshots/Account_Registration.png "registration")
 
-###login 
-
-###Dashboard
-
+### login 
+![Alt text](https://github.com/NaomiMariga/bucketlist/blob/work/static/screenshots/index or login_page.png "login")
+### Dashboard
+![Alt text](https://github.com/NaomiMariga/bucketlist/blob/work/static/screenshots/creating_bucketlist.png "bucketlist dashboard")
 ###
- 
+.
